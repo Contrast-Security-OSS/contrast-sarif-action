@@ -75,13 +75,13 @@ runs:
         ./contrast sarif ${{ steps.required-args.outputs.args }} ${{ steps.optional-args.outputs.args }} 
         echo sarif=$(cat contrast.sarif) >> $GITHUB_OUTPUT
     - name: Upload sarif file to summary
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
       with:
         name: contrast.sarif
         path: contrast.sarif
 
     - name: Upload SARIF file
       if: ${{ inputs.ghasEnabled == 'true'}}
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@0daab03d71ff584ef619d027a3fd9146679c5d84 # v3.35.3
       with:
         sarif_file: contrast.sarif
